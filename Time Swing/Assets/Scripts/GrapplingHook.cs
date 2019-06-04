@@ -63,7 +63,7 @@ public class GrapplingHook : MonoBehaviour
     {
         if(Input.touchCount > 0)
         {
-            TimeSlow.SetTimeTo(0.01f);
+            TimeSlow.SetTimeTo(0.05f);
             Touch touch = Input.GetTouch(0);
             switch(touch.phase)
             {
