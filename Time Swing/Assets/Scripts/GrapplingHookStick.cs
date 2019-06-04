@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GrapplingHookStick : MonoBehaviour
 {
-    private Rigidbody2D rb;    
+    public bool stuck;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class GrapplingHookStick : MonoBehaviour
            FixedJoint2D joint = gameObject.AddComponent<FixedJoint2D>();   
             joint.connectedBody = Collision.gameObject.GetComponent<Rigidbody2D>(); 
             joint.enableCollision = false; 
+            stuck = true;
         }
         
     }

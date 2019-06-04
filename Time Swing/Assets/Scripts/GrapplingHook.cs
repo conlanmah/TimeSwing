@@ -6,6 +6,7 @@ public class GrapplingHook : MonoBehaviour
 {
     public GameObject Hook;
     public float LaunchForce;
+    public float RopePullForce;
 
     private Rigidbody2D rb;
     private TimeSlow TimeSlow;
@@ -14,6 +15,7 @@ public class GrapplingHook : MonoBehaviour
     private bool Launch;
     private LineRenderer lr;
     private Rigidbody2D Hookrb;
+    private GrapplingHookStick GrapplingHookStick;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,7 @@ public class GrapplingHook : MonoBehaviour
         TimeSlow = gameObject.GetComponent<TimeSlow>();
         lr = gameObject.GetComponent<LineRenderer>();
         Hookrb = Hook.GetComponent<Rigidbody2D>();
+        GrapplingHookStick = Hook.GetComponent<GrapplingHookStick>();
 
         Hook.SetActive(false);
         lr.enabled = false;
@@ -36,6 +39,12 @@ public class GrapplingHook : MonoBehaviour
             lr.SetPosition(0, transform.position);
             lr.SetPosition(1, Hook.transform.position);
         }
+
+        if(GrapplingHookStick.stuck)
+        {
+            rb.AddForce((transform.position-Hook.transform.position).normalized* -RopePullForce * Time.unscaledDeltaTime, ForceMode2D.Impulse);
+        }
+
     }
 
     private void FixedUpdate()
@@ -54,6 +63,7 @@ public class GrapplingHook : MonoBehaviour
     {
         if(Input.touchCount > 0)
         {
+            TimeSlow.SetTimeTo(0.01f);
             Touch touch = Input.GetTouch(0);
             switch(touch.phase)
             {
@@ -63,13 +73,14 @@ public class GrapplingHook : MonoBehaviour
                     break;
                 
                 case TouchPhase.Ended:
-                    TimeSlow.SetTimeTo(1);
                     Launch = true;
                     Hook.SetActive(true);
                     lr.enabled = true;
                     Hook.transform.position = transform.position;
-                    Hookrb.AddForce(BetweenVector*LaunchForce, ForceMode2D.Impulse);
+                    Hookrb.velocity = Vector2.zero;
+                    Hookrb.AddForce(BetweenVector*LaunchForce * Time.unscaledDeltaTime, ForceMode2D.Impulse);
                     Destroy(Hook.GetComponent<FixedJoint2D>());
+                    GrapplingHookStick.stuck = false;
                     break;
 
                 case TouchPhase.Moved:
@@ -85,6 +96,17 @@ public class GrapplingHook : MonoBehaviour
                     break;
             }
             
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D Collision)
+    {
+        if(Collision.gameObject.CompareTag("Block"))
+        {
+            Destroy(Hook.GetComponent<FixedJoint2D>());
+            GrapplingHookStick.stuck = false;
+            Hook.SetActive(false);
+            lr.enabled = false;
         }
     }
 }
