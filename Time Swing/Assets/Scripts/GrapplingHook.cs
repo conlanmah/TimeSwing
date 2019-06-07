@@ -101,7 +101,7 @@ public class GrapplingHook : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D Collision)
     {
-        if(Collision.gameObject.CompareTag("Block"))
+        if(Collision.gameObject.CompareTag("Block") && GrapplingHookStick.stuck)
         {
             Destroy(Hook.GetComponent<FixedJoint2D>());
             GrapplingHookStick.stuck = false;
