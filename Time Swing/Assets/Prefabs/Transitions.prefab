@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6835654528551116059}
   - component: {fileID: 6835654528551116052}
   - component: {fileID: 6835654528551116058}
+  - component: {fileID: 6150977634313977534}
   m_Layer: 5
   m_Name: Transitions
   m_TagString: Untagged
@@ -94,3 +95,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &6150977634313977534
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6835654528551116054}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

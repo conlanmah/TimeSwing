@@ -5,6 +5,8 @@ using UnityEngine;
 public class TimeSlow : MonoBehaviour
 {
 
+    public bool ChangeTime;
+
     private float time;
     public float DefaultTime;
     public float ChangeSpd;
@@ -12,7 +14,7 @@ public class TimeSlow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Invoke("StartTimeChange",1);
     }
 
     // Update is called once per frame
@@ -21,21 +23,38 @@ public class TimeSlow : MonoBehaviour
 
         Time.timeScale = time;
         Time.fixedDeltaTime = Time.timeScale * .02f;
-        if(time < DefaultTime)
+
+        if(ChangeTime)
         {
-            time += ChangeSpd;
+            if(time < DefaultTime)
+            {
+                time += ChangeSpd;
+            }
+            else if (time > DefaultTime)
+            {
+                time -= ChangeSpd;
+            }
+            
+            time = Mathf.Clamp(time, 0.01f , 1);
         }
-        else if (time > DefaultTime)
+        else
         {
-            time -= ChangeSpd;
+            time = 1;
         }
-        
-        time = Mathf.Clamp(time, 0.01f , 1);
  
     }
 
     public void SetTimeTo(float _time)
     {
-        time = _time;
+        if(ChangeTime)
+        {
+            time = _time;
+        }
+        
+    }
+
+    private void StartTimeChange()
+    {
+        ChangeTime = true;
     }
 }
