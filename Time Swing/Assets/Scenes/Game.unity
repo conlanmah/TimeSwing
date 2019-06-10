@@ -391,7 +391,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.9058824, g: 0.90196085, b: 0.90196085, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -754,10 +754,40 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.627451
       objectReference: {fileID: 0}
+    - target: {fileID: 8170153791961219459, guid: 0d230cc8be529a542a08cb878ab14b18,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170153791961219459, guid: 0d230cc8be529a542a08cb878ab14b18,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170153791961219459, guid: 0d230cc8be529a542a08cb878ab14b18,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.735849
+      objectReference: {fileID: 0}
     - target: {fileID: 8170153792821263252, guid: 0d230cc8be529a542a08cb878ab14b18,
         type: 3}
       propertyPath: m_Color.a
       value: 0.627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170153792821263252, guid: 0d230cc8be529a542a08cb878ab14b18,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170153792821263252, guid: 0d230cc8be529a542a08cb878ab14b18,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 8170153792821263252, guid: 0d230cc8be529a542a08cb878ab14b18,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.764151
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
@@ -1367,6 +1397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneChange: {fileID: 62959336}
+  DeathEffect: {fileID: 3660808574228952659, guid: 537f23379c64d424189509499d2e9cf6,
+    type: 3}
   Time: {fileID: 1430788513}
 --- !u!1 &1692996203
 GameObject:
@@ -1836,17 +1868,17 @@ PrefabInstance:
     - target: {fileID: 870244036142121501, guid: 6c145b3092ffe4fdfaac0799b6eac21c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.57689154
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 870244036142121501, guid: 6c145b3092ffe4fdfaac0799b6eac21c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1182795
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 870244036142121501, guid: 6c145b3092ffe4fdfaac0799b6eac21c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -234.5664
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 870244036142121501, guid: 6c145b3092ffe4fdfaac0799b6eac21c,
         type: 3}
