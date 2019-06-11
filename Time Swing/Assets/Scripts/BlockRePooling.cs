@@ -21,6 +21,8 @@ public class BlockRePooling : MonoBehaviour
         if(Other.CompareTag("BlockRePool"))
         {
             transform.position = new Vector2(transform.position.x, 11f);
+            float random = Random.Range(0.1f, 1);
+            transform.localScale = Vector3.one * random;
         }
     }
 }
