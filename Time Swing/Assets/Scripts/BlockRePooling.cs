@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BlockRePooling : MonoBehaviour
 {
+
+    public float timeScaledtoScale;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +24,8 @@ public class BlockRePooling : MonoBehaviour
         if(Other.CompareTag("BlockRePool"))
         {
             transform.position = new Vector2(transform.position.x, 11f);
-            float random = Random.Range(0.1f, 1);
+            timeScaledtoScale = ((-0.06f * Time.timeSinceLevelLoad)+5)/10;
+            float random = Mathf.Clamp(Random.Range(timeScaledtoScale-.2f, timeScaledtoScale+.2f), 0.1f, .5f);
             transform.localScale = Vector3.one * random;
         }
     }
